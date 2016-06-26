@@ -20,5 +20,11 @@ body.touch p:nth-child(1) {
 body.touch p:nth-child(2) {
   top: 150px; }
 
+path {
+  stroke: black;
+  fill: transparent;
+  stroke-width: 10;
+  stroke-linecap: round; }
+
 p {
   font-size: 2em; }
