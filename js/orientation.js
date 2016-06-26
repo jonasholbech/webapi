@@ -3,8 +3,9 @@
  */
 var orientationElem = document.createElement('p'),
     lockPositionLabelElem = document.createElement('label'),
-    lockPositionElem = document.createElement('checkbox'),
+    lockPositionElem = document.createElement('input'),
     debugElem = document.createElement('p');
+lockPositionElem.setAttribute('type', 'checkbox');
 
 document.body.appendChild(orientationElem);
 document.body.appendChild(debugElem);
