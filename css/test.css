@@ -1,5 +1,8 @@
 body {
   color: black; }
 
+body.touch svg {
+  background-color: #0b97c4; }
+
 p {
   font-size: 2em; }
