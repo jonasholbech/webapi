@@ -4,7 +4,7 @@
 
 var body = document.querySelector('body');
 var button = document.createElement('button');
-button.appendChild(document.createTextNode("Go into fullscreen"));
+button.appendChild(document.createTextNode("Toggle fullscreen"));
 function launchIntoFullscreen() {
     var docelem = document.documentElement;
     if (docelem.requestFullscreen) {
