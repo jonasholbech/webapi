@@ -20,7 +20,7 @@ function onOrientationChange(e){
 
 function handleChange(e){
     var isPortrait = window.orientation % 180 === 0;
-
+    //TODO only works for fullscreen or installed apps
     var lockedAllowed = window.screen.lockOrientation(isPortrait ? "portrait":"landscape");
     debugElem.innerHTML="change"+isPortrait ? "portrait":"landscape" + lockedAllowed;
 
