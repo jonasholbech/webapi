@@ -8,6 +8,15 @@ var touchCountElem = document.createElement('p'),
     coords=[],
     paths=[];
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 function handleTouchCancel(e){
     e.preventDefault();
     touchTypeElem.innerHTML=e.type;
@@ -51,6 +60,7 @@ function handleTouchStart(e){
     coords.push([e.touches[0].pageX, e.touches[0].pageY]);
     var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
     newElement.setAttribute("d","M "+e.touches[0].pageX+" "+e.touches[0].pageY); //Set path's data
+    newElement.style.stroke=getRandomColor();
     svg.appendChild(newElement);
     paths.push(newElement);
     /*
