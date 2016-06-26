@@ -18,4 +18,4 @@ function launchIntoFullscreen(elemen) {
     }
 }
 button.addEventListener('click', launchIntoFullscreen, false);
-document.body.appendChild('button');
+document.body.appendChild(button);
