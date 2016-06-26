@@ -2,6 +2,32 @@ $primaryColor: black;
 
 body {
   color: $primaryColor;
+  margin:0;
+  padding:0;
+}
+body.touch svg{
+  background-color: #0b97c4;
+  width:100vw;
+  height:100vh;
+}
+body.touch p, body.touch h1 {
+  position:absolute;
+
+}
+body.touch p:first-child {
+  top:50px;
+}
+body.touch p:nth-child(1) {
+  top:100px;
+}
+body.touch p:nth-child(2) {
+  top:150px;
+}
+path {
+  stroke:black;
+  fill:transparent;
+  stroke-width:10;
+  stroke-linecap:round;
 }
 p {
   font-size:2em;
