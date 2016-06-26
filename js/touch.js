@@ -4,7 +4,8 @@
 var touchCountElem = document.createElement('p'),
     touchTypeElem = document.createElement('p'),
     touchDebugElem = document.createElement('p'),
-    svg = document.querySelector('svg');
+    svg = document.querySelector('svg'),
+    coords=[];
 
 function handleTouchCancel(e){
     e.preventDefault();
@@ -15,10 +16,22 @@ function handleTouchMove(e){
     e.preventDefault();
     touchTypeElem.innerHTML=e.type;
     touchDebugElem.innerHTML = e.touches[0].pageX + " " + e.touches[0].pageY;
+    coords.push([e.touches[0].pageX, e.touches[0].pageY]);
 }
 function handleTouchEnd(e){
     e.preventDefault();
     touchTypeElem.innerHTML=e.type;
+    var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
+
+    var i;
+    var t = coords.shift();
+    var dString="M "+t[0]+ " " + t[1] + " ";
+    for(i=0; i<coords.length; i++){
+        dString+=coords[i][0]+" "+coords[i][1]+" ";
+    }
+    newElement.setAttribute("d",dString); //Set path's data
+    svg.appendChild(newElement);
+    coords=[];
 }
 function handleTouchStart(e){
     e.preventDefault();
@@ -27,12 +40,12 @@ function handleTouchStart(e){
     touchCountElem.innerHTML="There are currently "+allTouchesLength+" touches on the screen";
     touchTypeElem.innerHTML=e.type;
 
+    coords.push([e.touches[0].pageX, e.touches[0].pageY]);
+    /*
     var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
     newElement.setAttribute("d","M 0 0 L 10 10"); //Set path's data
-    newElement.style.stroke = "#000"; //Set stroke colour
-    newElement.style.strokeWidth = "5px"; //Set stroke width
     svg.appendChild(newElement);
-    
+    */
 }
 document.body.appendChild(touchCountElem);
 document.body.appendChild(touchTypeElem);
