@@ -14,8 +14,8 @@ function handleOrientationEvent(e){
         beta = e.beta,//front to back
         gamma = e.gamma;//left to right
     debugElem.innerHTML= "beta: " + beta+ "<br>gamma: " + gamma;
-    ballPosition.x+=beta;
-    ballPosition.y+=gamma;
+    ballPosition.x+=gamma;
+    ballPosition.y+=beta;
     ball.style.left=ballPosition.x+"px";
     ball.style.top= ballPosition.y+"px";
 }
