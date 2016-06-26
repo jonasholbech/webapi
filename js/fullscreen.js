@@ -25,21 +25,16 @@ button.addEventListener('click', launchIntoFullscreen, false);
 document.body.appendChild(button);
 */
 document.onclick = function (argument) {
-    var conf = confirm("Fullscreen mode?");
-    var docelem = document.documentElement;
+    var doc = window.document;
+    var docEl = doc.documentElement;
 
-    if (conf == true) {
-        if (docelem.requestFullscreen) {
-            docelem.requestFullscreen();
-        }
-        else if (docelem.mozRequestFullScreen) {
-            docelem.mozRequestFullScreen();
-        }
-        else if (docelem.webkitRequestFullScreen) {
-            docelem.webkitRequestFullScreen();
-        }
-        else if (docelem.msRequestFullscreen) {
-            docelem.msRequestFullscreen();
-        }
+    var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+    if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        requestFullScreen.call(docEl);
     }
-}
+    else {
+        cancelFullScreen.call(doc);
+    }
+};
