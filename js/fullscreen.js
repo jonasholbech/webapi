@@ -5,18 +5,20 @@
 var body = document.querySelector('body');
 var button = document.createElement('button');
 button.appendChild(document.createTextNode("Go into fullscreen"));
-function launchIntoFullscreen(elemen) {
-    document.documentElement.requestFullscreen();
-    /*element=body;
-    if(element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if(element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-    } else if(element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-    } else if(element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-    }*/
+function launchIntoFullscreen() {
+    var docelem = document.documentElement;
+    if (docelem.requestFullscreen) {
+        docelem.requestFullscreen();
+    }
+    else if (docelem.mozRequestFullScreen) {
+        docelem.mozRequestFullScreen();
+    }
+    else if (docelem.webkitRequestFullscreen) {
+        docelem.webkitRequestFullscreen();
+    }
+    else if (docelem.msRequestFullscreen) {
+        docelem.msRequestFullscreen();
+    }
 }
 button.addEventListener('click', launchIntoFullscreen, false);
 document.body.appendChild(button);
