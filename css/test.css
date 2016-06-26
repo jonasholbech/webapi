@@ -2,7 +2,21 @@ body {
   color: black; }
 
 body.touch svg {
-  background-color: #0b97c4; }
+  background-color: #0b97c4;
+  width: 100vw;
+  height: 100vh; }
+
+body.touch p, body.touch h1 {
+  position: absolute; }
+
+body.touch p:first-child {
+  top: 50px; }
+
+body.touch p:nth-child(1) {
+  top: 100px; }
+
+body.touch p:nth-child(2) {
+  top: 150px; }
 
 p {
   font-size: 2em; }
