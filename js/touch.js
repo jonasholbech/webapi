@@ -50,9 +50,9 @@ function handleTouchStart(e){
 
     coords.push([e.touches[0].pageX, e.touches[0].pageY]);
     var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
-    newElement.setAttribute("d",dString); //Set path's data
+    newElement.setAttribute("d","M "+e.touches[0].pageX+" "+e.touches[0].pageY); //Set path's data
     svg.appendChild(newElement);
-    paths.push(newElement)
+    paths.push(newElement);
     /*
     var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
     newElement.setAttribute("d","M 0 0 L 10 10"); //Set path's data
