@@ -6,9 +6,9 @@ var accelerationElem = document.createElement('p'),
     topElem = document.createElement('p');
 
 var max = {
-    x:0,
-    y:0,
-    z:0
+    x:0,//west to east
+    y:0,//south to north
+    z:0//down to up
 };
 function handleDeviceMotion(e){
     var acc = e.acceleration,
