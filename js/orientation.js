@@ -22,7 +22,7 @@ function handleChange(e){
     var isPortrait = window.orientation % 180 === 0;
 
     var lockedAllowed = window.screen.lockOrientation(isPortrait ? "portrait":"landscape");
-    debugElem2.innerHTML="change"+isPortrait ? "portrait":"landscape" + lockedAllowed;
+    debugElem.innerHTML="change"+isPortrait ? "portrait":"landscape" + lockedAllowed;
 
 }
 
