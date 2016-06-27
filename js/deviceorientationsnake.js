@@ -20,12 +20,17 @@ function handleOrientationEvent(e){
     var //alpha = e.alpha,
         beta = e.beta,//front to back
         gamma = e.gamma;//left to right
-    ballPosition.x+=gamma;
-    ballPosition.y+=beta;
+    var high = Math.abs(beta) > Math.abs(gamma) ? "beta":"gamma";
+    if(high==="beta"){
+        ballPosition.y+=beta;
+    } else {
+        ballPosition.x+=gamma;
+    }
+    
     ball.style.left=ballPosition.x+"px";
     ball.style.top= ballPosition.y+"px";
 
-    var high = Math.abs(beta) > Math.abs(gamma) ? "beta":"gamma";
+
     if(high!==highest){
         highest=high;
 
