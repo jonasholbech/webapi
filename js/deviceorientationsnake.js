@@ -38,7 +38,9 @@ function handleOrientationEvent(e){
         lines.push(l);
         lineStart.x=ballPosition.x;
         lineStart.y=ballPosition.y;
+
     }
+    debugElem.innerHTML=highest;
 
 }
 
