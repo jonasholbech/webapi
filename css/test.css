@@ -21,7 +21,7 @@ body.touch p:nth-child(1) {
 body.touch p:nth-child(2) {
   top: 150px; }
 
-path {
+path, line {
   stroke: black;
   fill: transparent;
   stroke-width: 10;
