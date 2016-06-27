@@ -41,8 +41,6 @@ function handleOrientationEvent(e){
         lineStart.y=ballPosition.y;
 
     }
-
-
 }
 
 document.body.appendChild(debugElem);
