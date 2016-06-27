@@ -40,7 +40,7 @@ function handleOrientationEvent(e){
 
     if(high!==highest){
         highest=high;
-/*
+
         var l = document.createElementNS('http://www.w3.org/2000/svg','line');
         l.setAttribute('x1', lineStart.x);
         l.setAttribute('y1', lineStart.y);
@@ -48,7 +48,7 @@ function handleOrientationEvent(e){
         l.setAttribute('y2', ballPosition.y);
         svg.appendChild(l);
         lines.push(l);
-        */
+        
         debugElem.innerHTML="draw a line "+lineStart.x + " "+lineStart.y + " " + ballPosition.x + " " +ballPosition.y;
         lineStart.x=ballPosition.x;
         lineStart.y=ballPosition.y;
