@@ -2,8 +2,7 @@
  * Created by holbech on 27/06/16.
  */
 
-var debugElem = document.createElement('p'),
-    svg = document.querySelector('svg'),
+var svg = document.querySelector('svg'),
     ball = document.createElement('div');
 
 ball.style.backgroundColor="red";
@@ -59,6 +58,5 @@ function handleOrientationEvent(e){
     }
 }
 
-document.body.appendChild(debugElem);
 document.body.appendChild(ball);
 window.addEventListener('deviceorientation', handleOrientationEvent, false);
