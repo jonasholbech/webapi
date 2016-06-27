@@ -6,12 +6,12 @@ body {
   padding:0;
   font-size:2em;
 }
-body.touch svg{
+body.touch svg, body.deviceorientationsnake svg{
   background-color: #0b97c4;
   width:100vw;
   height:100vh;
 }
-body.touch p, body.touch h1 {
+body.touch p, body.touch h1, body.deviceorientationsnake p, body.deviceorientationsnake h1 {
   position:absolute;
 
 }
@@ -24,7 +24,7 @@ body.touch p:nth-child(1) {
 body.touch p:nth-child(2) {
   top:150px;
 }
-path {
+path, line {
   stroke:black;
   fill:transparent;
   stroke-width:10;
