@@ -16,6 +16,13 @@ var lines=[];
 var lineStart={
   x:0, y:0
 };
+var tempLine=document.createElementNS('http://www.w3.org/2000/svg','line');
+tempLine.setAttribute('x1', lineStart.x);
+tempLine.setAttribute('y1', lineStart.y);
+tempLine.setAttribute('x2', ballPosition.x);
+tempLine.setAttribute('y2', ballPosition.y);
+svg.appendChild(tempLine);
+
 function handleOrientationEvent(e){
     var //alpha = e.alpha,
         beta = e.beta,//front to back
@@ -26,7 +33,7 @@ function handleOrientationEvent(e){
     } else {
         ballPosition.x+=gamma;
     }
-    
+
     ball.style.left=ballPosition.x+"px";
     ball.style.top= ballPosition.y+"px";
 
@@ -44,7 +51,11 @@ function handleOrientationEvent(e){
         debugElem.innerHTML="draw a line "+lineStart.x + " "+lineStart.y + " " + ballPosition.x + " " +ballPosition.y;
         lineStart.x=ballPosition.x;
         lineStart.y=ballPosition.y;
-
+        tempLine.setAttribute('x1', ballPosition.x);
+        tempLine.setAttribute('y1', ballPosition.y);
+    } else {
+        tempLine.setAttribute('x2', ballPosition.x);
+        tempLine.setAttribute('y2', ballPosition.y);
     }
 }
 
