@@ -36,9 +36,10 @@ function handleOrientationEvent(e){
         l.setAttribute('y2', ballPosition.y);
         svg.appendChild(l);
         lines.push(l);
+        debugElem.innerHTML="draw a line "+lineStart.x + " "+lineStart.y + " " + ballPosition.x + " " +ballPosition.y;
         lineStart.x=ballPosition.x;
         lineStart.y=ballPosition.y;
-        debugElem.innerHTML="draw a line "+lineStart.x + " "+lineStart.y + " " + ballPosition.x + " " +ballPosition.y;
+
     }
 
 
