@@ -51,7 +51,7 @@ var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: crds.latitude, lng: crds.longitude},
-        zoom: 8
+        zoom: 12
     });
 }
 
@@ -73,10 +73,10 @@ function success(pos) {
     console.log('Longitude: ' + crds.longitude);
     console.log('More or less ' + crds.accuracy + ' meters.');
     start();
-};
+}
 
 function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
-};
+}
 
 navigator.geolocation.getCurrentPosition(success, error, options);
