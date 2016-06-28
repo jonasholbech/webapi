@@ -4,7 +4,7 @@
 var positionFound=false;
 var debugElem = document.createElement('p');
 document.body.appendChild(debugElem);
-
+var crds, googleReady=false;
 Math.toRadians = function(degrees) {
     return degrees * Math.PI / 180;
 };
@@ -50,18 +50,29 @@ var options = {
 var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
+        center: {lat: crds.latitude, lng: crds.longitude},
         zoom: 8
     });
 }
 
+function setReady(){
+    googleReady=true;
+    start();
+}
+
+function start(){
+    if(googleReady && crds){
+        initMap();
+    }
+}
 function success(pos) {
-    var crd = pos.coords;
+    crds = pos.coords;
 
     console.log('Your current position is:');
-    console.log('Latitude : ' + crd.latitude);
-    console.log('Longitude: ' + crd.longitude);
-    console.log('More or less ' + crd.accuracy + ' meters.');
+    console.log('Latitude : ' + crds.latitude);
+    console.log('Longitude: ' + crds.longitude);
+    console.log('More or less ' + crds.accuracy + ' meters.');
+    start();
 };
 
 function error(err) {
