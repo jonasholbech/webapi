@@ -9,6 +9,7 @@ ball.style.backgroundColor="red";
 ball.style.borderRadius="50%";
 ball.style.width=ball.style.height="80px";
 ball.style.position="absolute";
+ball.style.transformOrigin="50% 50%";
 ballPosition={x:0, y:0};
 var highest='beta';
 var lines=[];
