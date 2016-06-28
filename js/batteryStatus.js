@@ -10,7 +10,7 @@ document.body.appendChild(levelElem);
 document.body.appendChild(chargeTimeElem);
 document.body.appendChild(disChargeTimeElem);
 navigator.getBattery().then(function(battery) {
-    console.log(battery);
+    console.log("Battery: ", battery);
     function updateAllBatteryInfo(){
         updateChargeInfo();
         updateLevelInfo();
