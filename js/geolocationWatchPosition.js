@@ -7,7 +7,7 @@ function initMap() {
         center: {lat: -34.397, lng: 150.644},
         zoom: 20
     });
-    
+
     infoWindow = new google.maps.InfoWindow({map: map});
 
     // Try HTML5 geolocation.
@@ -24,6 +24,10 @@ function initMap() {
             getURL("https://kea-alt-del.dk/twitter/api/?hashtag=kea&geo="+pos.lat+","+pos.lng+",10km", function(d){
                 console.log("data received");
                 console.log(d);
+                var i=0;
+                for(; i<d.statuses.length; i++){
+                    console.log(d.statuses[i].geo)
+                }
                 global=d;
             })
         }, function() {
