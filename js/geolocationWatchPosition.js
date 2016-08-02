@@ -1,7 +1,7 @@
 /**
  * Created by holbech on 02/08/16.
  */
-var map, infoWindow;
+var map, infoWindow, global;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
@@ -22,7 +22,8 @@ function initMap() {
             map.setCenter(pos);
             getURL("https://kea-alt-del.dk/twitter/api/?hashtag=&geo="+pos.lat+","+pos.lng+",10km", function(d){
                 console.log("data received");
-                console.log(d)
+                console.log(d);
+                global=d;
             })
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
