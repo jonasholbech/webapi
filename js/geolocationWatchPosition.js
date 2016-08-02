@@ -20,7 +20,8 @@ function initMap() {
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
-            getURL("https://kea-alt-del.dk/twitter/api/?hashtag=kea", function(d){
+            getURL("https://kea-alt-del.dk/twitter/api/?hashtag=&geo="+pos.lat+","+pos.lng+",10km", function(d){
+                console.log("data received");
                 console.log(d)
             })
         }, function() {
@@ -40,6 +41,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function getURL(url, callback) {
+    console.log("geturl called");
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
