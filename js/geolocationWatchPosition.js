@@ -1,7 +1,7 @@
 /**
  * Created by holbech on 02/08/16.
  */
-var map, infoWindow, global;
+var map, infoWindow, global, pos;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
@@ -12,7 +12,7 @@ function initMap() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function(position) {
-            var pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
