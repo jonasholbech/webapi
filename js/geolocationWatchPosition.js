@@ -26,7 +26,11 @@ function initMap() {
                 console.log(d);
                 var i=0;
                 for(; i<d.statuses.length; i++){
-                    console.log(d.statuses[i].geo)
+                    if(d.statuses[i].geo){
+                        var iw = new google.maps.InfoWindow({map:map});
+                        iw.setPosition({lat:d.statuses[i].geo.coordinates[0],lng:d.statuses[i].geo.coordinates[1]});
+                        iw.setContent(d.statuses[i].text);
+                    }
                 }
                 global=d;
             })
