@@ -1,29 +1,27 @@
 /**
  * Created by holbech on 02/08/16.
  */
-var map, infoWindow, global, pos;
+
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
         zoom: 20
     });
 
-    infoWindow = new google.maps.InfoWindow({map: map});
+    var infoWindow = new google.maps.InfoWindow({map: map});
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function(position) {
-            pos = {
+            var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
+
             getURL("https://kea-alt-del.dk/twitter/api/?geo="+pos.lat+","+pos.lng+",5km&count=100", function(d){
-                console.log("data received");
-                console.log(d);
+                //console.log("data received");
+                //console.log(d);
                 var i=0;
                 for(; i<d.statuses.length; i++){
                     if(d.statuses[i].geo){
@@ -32,7 +30,10 @@ function initMap() {
                         iw.setContent(d.statuses[i].text);
                     }
                 }
-                global=d;
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                map.setCenter(pos);
+
             })
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
