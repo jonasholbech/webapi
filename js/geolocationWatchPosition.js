@@ -20,7 +20,7 @@ function initMap() {
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
-            getURL("https://kea-alt-del.dk/twitter/api/?hashtag=&geo="+pos.lat+","+pos.lng+",10km", function(d){
+            getURL("https://kea-alt-del.dk/twitter/api/?hashtag=kea&geo="+pos.lat+","+pos.lng+",10km", function(d){
                 console.log("data received");
                 console.log(d);
                 global=d;
