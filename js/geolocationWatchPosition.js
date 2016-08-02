@@ -20,6 +20,9 @@ function initMap() {
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
+            getURL("https://kea-alt-del.dk/twitter/api/?hashtag=kea", function(d){
+                console.log(d)
+            })
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -34,4 +37,22 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setContent(browserHasGeolocation ?
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
+}
+
+function getURL(url, callback) {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200){
+                callback(JSON.parse(xmlhttp.responseText));
+            }
+            else {
+                console.log('We had an error, status code: ', xmlhttp.status);
+            }
+        }
+    }
+
+    xmlhttp.open('GET', url, true);
+    xmlhttp.send();
 }
