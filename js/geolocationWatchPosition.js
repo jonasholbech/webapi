@@ -19,7 +19,7 @@ function initMap() {
             };
 
             console.log("Watching position");
-            getURL("https://kea-alt-del.dk/twitter/api/?geo="+pos.lat+","+pos.lng+",50km&count=100", function(d){
+            getURL("https://kea-alt-del.dk/twitter/api/?geo="+pos.lat+","+pos.lng+",500km&count=100", function(d){
                 //console.log("data received");
                 console.log(d);
 
