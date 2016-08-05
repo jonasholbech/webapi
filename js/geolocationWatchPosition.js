@@ -21,8 +21,8 @@ function initMap() {
 
             getURL("https://kea-alt-del.dk/twitter/api/?geo="+pos.lat+","+pos.lng+",50km&count=100", function(d){
                 //console.log("data received");
-                //console.log(d);
-                
+                console.log(d);
+
                 var i=0;
                 for(; i<d.statuses.length; i++){
                     if(d.statuses[i].geo){
