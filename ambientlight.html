@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .value {
+            font-size:4em;
+        }
+    </style>
+</head>
+
+<body>
+<ul>
+    <li>Light: <span id=dl-value class=value>null</span> lux. </li>
+    <li>State: <span id=ll-value class=value>null</span>. </li> </ul>
+<script>
+    var body = document.body;
+    if (!('ondevicelight' in window)) {
+
+    } else {
+        var lightValue = document.getElementById('dl-value');
+
+        window.addEventListener('devicelight', function(event) {
+            var nice = Math.round(event.value);;
+            lightValue.innerHTML = nice;
+            var color = 255-(100+nice);
+            body.style.backgroundColor="rgb("+color+", "+color+", "+color+")";
+            //console.log(event);
+        });
+    }
+
+    if (!('onlightlevel' in window)) {
+        console.log("lightlevel not supported");
+    } else {
+        var lightStateValue = document.getElementById('ll-value');
+
+        window.addEventListener('lightlevel', function(event) {
+            lightStateValue.innerHTML = event.value;
+        });
+    }</script>
+</body>
+</html>
