@@ -12,13 +12,13 @@ function init() {
 }
 
 function getJSON(what, type, callback){
-   /* fetch(what)
+    fetch(what)
         .then(function (response) {
             return response[type]();
         })
         .then(function(data){
             callback(data)
-        });*/
+        });
 }
 
 
