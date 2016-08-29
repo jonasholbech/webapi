@@ -33,6 +33,7 @@ function show(data){
     });
 }
 if(!'fetch' in window){
+    console.log("loading polyfill");
     var s = document.createElement('script');
     s.type = 'text/javascript';
     s.src = 'js/polyfills/fetch.polyfill.js';
