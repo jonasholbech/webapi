@@ -32,5 +32,12 @@ function show(data){
         template.container.appendChild(clone);
     });
 }
+if(!'fetch' in window){
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'js/polyfills/fetch.polyfill.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+}
 document.addEventListener('DOMContentLoaded', init);
 })();
