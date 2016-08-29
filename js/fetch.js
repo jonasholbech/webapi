@@ -41,8 +41,8 @@ if(!('fetch' in window)){
     var x = document.getElementsByTagName('script')[0];
     x.parentNode.insertBefore(s, x);
     s.onload = function(){
-      console.log("script should be loaded");
-        document.addEventListener('load', init);
+        console.log("script should be loaded");
+        init();
     };
 
 } else {
