@@ -42,8 +42,9 @@ if(!('fetch' in window)){
     x.parentNode.insertBefore(s, x);
     s.onload = function(){
       console.log("script should be loaded");
+        document.addEventListener('load', init);
     };
-    document.addEventListener('load', init);
+
 } else {
     console.log("DOMContentLoaded ramt");
     document.addEventListener('DOMContentLoaded', init);
