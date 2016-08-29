@@ -1,19 +1,20 @@
 /**
  * Created by holbech on 29/08/16.
  */
+(function(){
 var template = {};
 function init() {
     template.content = document.querySelector("#templateTechnologies").content;
     template.header = template.content.querySelector('h1');
     template.container = document.querySelector('body');
-    getJSON('data/data.json', show);
+    getJSON('data/data.json', 'json', show);
 
 }
 
-function getJSON(what, callback){
+function getJSON(what, type, callback){
     fetch(what)
         .then(function (response) {
-            return response.json();
+            return response[type]();
         })
         .then(function(data){
             callback(data)
@@ -31,5 +32,5 @@ function show(data){
         template.container.appendChild(clone);
     });
 }
-
-init();
+document.addEventListener('DOMContentLoaded', init);
+})();
