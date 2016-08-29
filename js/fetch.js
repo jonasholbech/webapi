@@ -2,6 +2,7 @@
  * Created by holbech on 29/08/16.
  */
 (function(){
+    "use strict";
 var template = {};
 function init() {
     template.content = document.querySelector("#templateTechnologies").content;
@@ -39,6 +40,9 @@ if(!('fetch' in window)){
     s.src = 'js/polyfills/fetch.polyfill.js';
     var x = document.getElementsByTagName('script')[0];
     x.parentNode.insertBefore(s, x);
+    s.onload = function(){
+      console.log("script should be loaded");
+    };
     document.addEventListener('load', init);
 } else {
     console.log("DOMContentLoaded ramt");
