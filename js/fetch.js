@@ -38,6 +38,8 @@ if(!'fetch' in window){
     s.src = 'js/polyfills/fetch.polyfill.js';
     var x = document.getElementsByTagName('script')[0];
     x.parentNode.insertBefore(s, x);
+    document.addEventListener('load', init);
+} else {
+    document.addEventListener('DOMContentLoaded', init);
 }
-document.addEventListener('DOMContentLoaded', init);
 })();
