@@ -12,13 +12,13 @@ function init() {
 }
 
 function getJSON(what, type, callback){
-    fetch(what)
+   /* fetch(what)
         .then(function (response) {
             return response[type]();
         })
         .then(function(data){
             callback(data)
-        });
+        });*/
 }
 
 
@@ -41,6 +41,7 @@ if(!'fetch' in window){
     x.parentNode.insertBefore(s, x);
     document.addEventListener('load', init);
 } else {
+    console.log("DOMContentLoaded ramt");
     document.addEventListener('DOMContentLoaded', init);
 }
 })();
