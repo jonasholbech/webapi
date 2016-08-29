@@ -32,7 +32,7 @@ function show(data){
         template.container.appendChild(clone);
     });
 }
-if(!'fetch' in window){
+if(!('fetch' in window)){
     console.log("loading polyfill");
     var s = document.createElement('script');
     s.type = 'text/javascript';
