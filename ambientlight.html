@@ -15,15 +15,16 @@
 <ul>
     <li>Light: <span id=dl-value class=value>null</span> lux. </li>
     <li>State: <span id=ll-value class=value>null</span>. </li> </ul>
+
 <script>
     var body = document.body;
     if (!('ondevicelight' in window)) {
-
+        document.write("Your browser does not support the ondevicelight event, try firefox");
     } else {
         var lightValue = document.getElementById('dl-value');
 
         window.addEventListener('devicelight', function(event) {
-            var nice = Math.round(event.value);;
+            var nice = Math.round(event.value);
             lightValue.innerHTML = nice;
             var color = 255-(100+nice);
             body.style.backgroundColor="rgb("+color+", "+color+", "+color+")";
