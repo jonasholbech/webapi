@@ -14,11 +14,13 @@
 <body>
 <ul>
     <li>Light: <span id=dl-value class=value>null</span> lux. </li>
-    <li>State: <span id=ll-value class=value>null</span>. </li> </ul>
+    <li>State: <span id=ll-value class=value>null</span>. </li>
+</ul>
 
 <script>
     var body = document.body;
     if (!('ondevicelight' in window)) {
+        document.body.removeChild(document.querySelector('ul'));
         document.write("Your browser does not support the ondevicelight event, try firefox");
     } else {
         var lightValue = document.getElementById('dl-value');
