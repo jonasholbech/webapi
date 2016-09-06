@@ -18,13 +18,15 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
-
-            getURL("https://kea-alt-del.dk/twitter/api/?geo="+pos.lat+","+pos.lng+",5km&count=100", function(d){
+            console.log("Watching position");
+            getURL("https://kea-alt-del.dk/twitter/api/?geo="+pos.lat+","+pos.lng+",500km&count=100", function(d){
                 //console.log("data received");
-                //console.log(d);
+                console.log(d);
+
                 var i=0;
                 for(; i<d.statuses.length; i++){
                     if(d.statuses[i].geo){
+                        console.log("Got geo:", d.statuses[i]);
                         var iw = new google.maps.InfoWindow({map:map});
                         iw.setPosition({lat:d.statuses[i].geo.coordinates[0],lng:d.statuses[i].geo.coordinates[1]});
                         iw.setContent(d.statuses[i].text);
