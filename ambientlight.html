@@ -20,6 +20,7 @@
 <script>
     var body = document.body;
     if (!('ondevicelight' in window)) {
+        document.body.removeChild(document.querySelector('ul'));
         document.write("Your browser does not support the ondevicelight event, try firefox");
     } else {
         var lightValue = document.getElementById('dl-value');
