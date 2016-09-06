@@ -2,9 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="css/test.css">
+    <title>Firebase</title>
 </head>
-<body>
 
+<body class="firebase">
+<article></article>
+
+
+<form method="post">
+    <label>
+        Name:
+        <input type="text" name="name">
+    </label>
+    <label>
+        Message:
+        <textarea name="message"></textarea>
+    </label>
+    <input type="submit" value="Post It">
+</form>
+
+<template id="message">
+    <section class="message" data-id="helo">
+        <header>
+            <h1>Name</h1>
+            <time>time here</time>
+        </header>
+        <a href="#" class="delete"><img src="gfx/error.svg" alt="Delete this"></a>
+        <a href="#" class="edit"><img src="gfx/edit.svg" alt="Edit"></a>
+
+        <div>
+            your message here
+        </div>
+    </section>
+
+</template>
+
+
+
+
+<template id="edit">
+    <form action="#" method="post">
+        <input type="hidden" name="id">
+        <label>
+            Name
+            <input type="text" name="name">
+        </label>
+        <label>
+            Message
+            <textarea name="message"></textarea>
+        </label>
+    </form>
+</template>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+<script src="js/firebase.js"></script>
 </body>
 </html>
