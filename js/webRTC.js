@@ -1,8 +1,9 @@
 navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia || navigator.msGetUserMedia;
 
 function onSuccess(stream){
-    if(var vid=document.querySelector('video')){
-        document.removeChild(vid);
+    var vid=document.querySelector('video')
+    if(vid){
+        document.body.removeChild(vid);
     }
     var video = document.createElement('video'),
     videoSource = window.URL.createObjectURL(stream);
@@ -30,6 +31,14 @@ document.getElementById('flip-button').onclick = function() {
 
 var ul = document.createElement('ul');
 
+if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+    var li = document.querySelector('li');
+    li.innerHTML="enumerateDevices() not supported.";
+    ul.appendChild(li);
+    document.body.appendChild(ul);
+
+}
+
 navigator.mediaDevices.enumerateDevices()
     .then(function(devices) {
         devices.forEach(function(device) {
@@ -41,7 +50,11 @@ navigator.mediaDevices.enumerateDevices()
         document.body.appendChild(ul);
     })
     .catch(function(err) {
-        console.log(err.name + ": " + err.message);
+        var li = document.querySelector('li');
+        li.innerHTML=err.name + ": " + err.message;
+        ul.appendChild(li);
+        document.body.appendChild(ul);
+
     });
 
 
