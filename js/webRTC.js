@@ -13,14 +13,17 @@ function onError(){
 }
 
 var front = false;
-document.getElementById('flip-button').onclick = function() { front = !front; };
+document.getElementById('flip-button').onclick = function() {
+    front = !front;
+    if(navigator.getUserMedia){
+        navigator.getUserMedia({
+            video: { facingMode: (front? "user" : "environment") }/*,
+             audio:true*/
+        }, onSuccess, onError);
+    } else {
+        throw new Error("Sorry, getUserMedia is not supported in your browser");
+    }
+};
 
-if(navigator.getUserMedia){
-    navigator.getUserMedia({
-        video: { facingMode: (front? "user" : "environment") }/*,
-        audio:true*/
-    }, onSuccess, onError);
-} else {
-    throw new Error("Sorry, getUserMedia is not supported in your browser");
-}
+
 
