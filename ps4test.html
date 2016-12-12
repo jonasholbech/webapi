@@ -10,7 +10,7 @@
 
     <h1>PS4 Test</h1>
     <h2 class="key">event.key: <span></span></h2>
-    <h2 class="keycode">event.keycode: <span></span></h2>
+    <h2 class="keycode">event.keyCode: <span></span></h2>
 <script>
     var x1 = document.querySelector('.key span');
     var x2 = document.querySelector('.keycode span');
@@ -19,6 +19,7 @@
     function keyup(e){
         x1.innerHTML = e.key;
         x2.innerHTML=e.keyCode;
+        e.preventDefault();
     }
 </script>
 </body>
