@@ -9,13 +9,16 @@
 <body>
 
     <h1>PS4 Test</h1>
-    <h2 class="keycodes">event.key: <span></span></h2>
+    <h2 class="key">event.key: <span></span></h2>
+    <h2 class="keycode">event.keycode: <span></span></h2>
 <script>
-    var x = document.querySelector('.keycodes span');
+    var x1 = document.querySelector('.key span');
+    var x2 = document.querySelector('.keycode span');
     window.onkeyup = keyup;
 
     function keyup(e){
-        x.innerHTML = e.key;
+        x1.innerHTML = e.key;
+        x2.innerHTML=e.keyCode;
     }
 </script>
 </body>
