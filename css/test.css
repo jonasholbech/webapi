@@ -28,4 +28,33 @@ path, line {
   stroke-linecap: round; }
 
 p {
-  font-size: 2em; }
+  font-size: 2rem; }
+
+.message {
+  transition: all 1s; }
+
+.message .delete {
+  color: red;
+  float: right;
+  cursor: pointer;
+  text-decoration: none;
+  width: 50px; }
+
+.message .edit {
+  color: red;
+  float: right;
+  cursor: pointer;
+  text-decoration: none;
+  width: 50px; }
+
+form input, form label, form textarea {
+  display: block;
+  width: 100%;
+  font-size: 1.2rem; }
+
+label {
+  color: #0f7595;
+  cursor: pointer; }
+
+.hide {
+  opacity: 0; }
